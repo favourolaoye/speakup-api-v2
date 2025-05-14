@@ -33,7 +33,7 @@ export const categorizeReport = async function(reportText) {
     });
 
     const category = response.choices[0].message.content.trim();
-    return categories.includes(category) ? category : "Uncategorized";
+    return categories.includes(category) ? category : "spam";
   } catch (error) {
     console.error("Error categorizing report:", error.response?.data || error.message);
     return "Uncategorized";
