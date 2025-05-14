@@ -21,6 +21,6 @@ app.use("/api/admin", authRoutes);
 app.use("/api/report", reportRoute);
 
 // running the application
-app.listen(PORT, (req,res) => {
+app.listen(PORT,"0.0.0.0", (req,res) => {
     console.log(`App listeniing @${PORT}`)
 })
