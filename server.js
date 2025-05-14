@@ -1,0 +1,26 @@
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connector from "./db/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import reportRoute from "./routes/reportRoute.js";
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 8080;
+
+// Middlewares
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(cors())
+
+connector();
+
+// api routes
+app.use("/api/admin", authRoutes);
+app.use("/api/report", reportRoute);
+
+// running the application
+app.listen(PORT, (req,res) => {
+    console.log(`App listeniing @${PORT}`)
+})

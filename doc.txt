@@ -1,0 +1,11 @@
+@ POST admin Login
+/api/admin/login
+
+@POST admin Register
+/api/admin/register
+
+@POST report
+/api/report/save
+
+@GET report
+/api/report/retrieve
