@@ -1,5 +1,5 @@
 import express from "express";
-import { saveReport, getReports } from "../controllers/reportController.js";
+import { saveReport, getReports, deleteOneReport, getOneReport } from "../controllers/reportController.js";
 import { sendEmail } from "../controllers/emailController.js";
 const router = express.Router();
 
@@ -8,5 +8,7 @@ const router = express.Router();
 router.post("/save", saveReport);
 router.get("/retrieve", getReports);
 router.post("/sendmail", sendEmail);
+router.delete("/:id", deleteOneReport);
+router.get("/:id", getOneReport);
 
 export default router;
