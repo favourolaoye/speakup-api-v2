@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.post("/save", saveReport);
 router.get("/retrieve", getReports);
-router.get("/sendmail", sendEmail);
+router.post("/sendmail", sendEmail);
 
 export default router;
