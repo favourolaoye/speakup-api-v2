@@ -27,7 +27,7 @@ export const registerStudent = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashed = await bcrypt.hash(password, salt);
 
-        admin = new Admin({
+        student = new Student({
             name: username,
             email: email,
             password: hashed
