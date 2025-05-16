@@ -46,11 +46,12 @@ export const LoginStudent = async (req, res) => {
     try {
         const { email, password } = req.body;
         console.log(password)
+        
         if (!email || !password) {
             return res.status(400).json({ msg: "you need to fill in all fields!" });
         }
         let student = await Student.findOne({ email });
-        console.log(admin);
+        console.log(student);
         if (!student) {
             return res.status(400).json({ err: "Check your inputs" });
         }
