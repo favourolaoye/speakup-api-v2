@@ -65,6 +65,7 @@ export const getOneReport = async (req, res) => {
   try {
     const report = await Report.findById(id);
     if (!report) {
+        
       return res.status(404).json({ msg: "Report not found" });
     }
 

@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import connector from "./db/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import reportRoute from "./routes/reportRoute.js";
+
+import studentRoute from "./routes/studentRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -19,6 +21,7 @@ connector();
 // api routes
 app.use("/api/admin", authRoutes);
 app.use("/api/report", reportRoute);
+app.use("/api/student", studentRoute);
 
 // running the application
 app.listen(PORT, "0.0.0.0", (req,res) => {
