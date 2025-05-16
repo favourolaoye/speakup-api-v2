@@ -32,7 +32,7 @@ export const registerStudent = async (req, res) => {
             email: email,
             password: hashed
         })
-        await admin.save();
+        await student.save();
         return res.status(201).json({ msg: "Student registered!" })
     }
     catch (err) {
