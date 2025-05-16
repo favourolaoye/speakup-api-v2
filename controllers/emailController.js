@@ -17,8 +17,8 @@ export const sendEmail = async (req, res) => {
       from: 'onboarding@resend.dev',
       to: student,
       subject,
-      html,
-      text
+      text,
+      html
     });
 
     res.status(200).json({ msg: "Email sent successfully", data: response });

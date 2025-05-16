@@ -4,10 +4,11 @@ import Report from "../models/report.js";
 
 export const saveReport = async (req, res) => {
     const { name, email, report } = req.body;
+    if (!name || !email || !report) {
+        return res.status(400).json({ msg: "Please fill in all fields." });
+    }
     try {
-        if (!name || !email || !report) {
-            return res.status(400).json({ msg: "Please fill in all fields." });
-        }
+
 
         let catergorized = await categorizeReport(report);
 

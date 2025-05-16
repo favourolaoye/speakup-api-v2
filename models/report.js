@@ -8,8 +8,7 @@ const reportSchema = new mongoose.Schema({
     },
     mail: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     report: {
         type: String,
