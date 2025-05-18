@@ -12,7 +12,7 @@ const generateToken = (id) => {
 
 export const registerStudent = async (req, res) => {
     const { username, email, password } = req.body;
-    if (!username || !password || !email) {
+    if (!username || !password || !email ) {
         return res.status(401).json({ msg: "Fill in all fields" })
     }
     else if (password.length < 6) {
@@ -46,14 +46,14 @@ export const LoginStudent = async (req, res) => {
     try {
         const { email, password } = req.body;
         console.log(password)
-        
+
         if (!email || !password) {
             return res.status(400).json({ msg: "you need to fill in all fields!" });
         }
         let student = await Student.findOne({ email });
         console.log(student);
         if (!student) {
-            return res.status(400).json({ err: "Check your inputs" });
+            return res.status(400).json({ msg: "Check your inputs" });
         }
 
         const isMatch = await bcrypt.compare(password, student.password)
