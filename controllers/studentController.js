@@ -72,7 +72,7 @@ export const LoginStudent = async (req, res) => {
 }
 
 export const getById = async (req, res) => {
-    const {id} = req.body
+    const {id} = req.params;
     try {
         // find by id
         const students = await Student.findById({id});
