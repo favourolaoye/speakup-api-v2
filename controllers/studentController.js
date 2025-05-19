@@ -81,3 +81,14 @@ export const getById = async (req, res) => {
         return res.status(500).json({ msg: "Failed to retrieve students", dev: err.message });
     }
 };
+
+export const getAllStudents = async (req, res) => {
+    
+    try {
+        // sort by latest
+        const students = await Student.find().sort({ _id: -1 });
+        return res.status(200).json(students);
+    } catch (err) {
+        return res.status(500).json({ msg: "Failed to retrieve students", dev: err.message });
+    }
+};
