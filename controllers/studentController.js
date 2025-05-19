@@ -71,10 +71,11 @@ export const LoginStudent = async (req, res) => {
     }
 }
 
-export const getAllStudents = async (req, res) => {
+export const getById = async (req, res) => {
+    const {id} = req.body
     try {
-        // sort by latest
-        const students = await Student.find().sort({ createdAt: -1 });
+        // find by id
+        const students = await Student.findOne({id});
         return res.status(200).json(students);
     } catch (err) {
         return res.status(500).json({ msg: "Failed to retrieve students", dev: err.message });
