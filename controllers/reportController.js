@@ -58,7 +58,7 @@ export const deleteOneReport = async (req, res) => {
 export const getOneReport = async (req, res) => {
   const { Emailid } = req.params;
   console.log(Emailid);
-  if (!id) {
+  if (!Emailid) {
     return res.status(400).json({ msg: "Invalid request" });
   }
 
