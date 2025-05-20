@@ -51,7 +51,7 @@ export const deleteOneReport = async (req, res) => {
         res.status(201).json({ msg: "deleted successfully" });
     }
     catch (error) {
-        res.status(500).json({ err: "Server error", error });
+        res.status(500).json({ msg: "Server error", error });
     }
 }
 
@@ -63,7 +63,7 @@ export const getOneReport = async (req, res) => {
   }
 
   try {
-    const report = await Report.findById(id);
+    const report = await Report.findOne({ mail: id });
     if (!report) {
         
       return res.status(404).json({ msg: "Report not found" });
