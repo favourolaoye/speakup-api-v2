@@ -9,6 +9,6 @@ router.post("/save", saveReport);
 router.get("/retrieve", getReports);
 router.post("/sendmail", sendEmail);
 router.delete("/:id", deleteOneReport);
-router.get("/:id", getOneReport);
+router.get("/:Emailid", getOneReport);
 
 export default router;
