@@ -53,7 +53,7 @@ export const LoginStudent = async (req, res) => {
         let student = await Student.findOne({ email });
         console.log(student);
         if (!student) {
-            return res.status(400).json({ msg: "Check your inputs" });
+            return res.status(400).json({ msg: "Invalid username or passord!" });
         }
 
         const isMatch = await bcrypt.compare(password, student.password)

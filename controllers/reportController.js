@@ -58,14 +58,14 @@ export const deleteOneReport = async (req, res) => {
 export const getOneReport = async (req, res) => {
   const { Emailid } = req.params;
   console.log(Emailid);
+  
   if (!Emailid) {
     return res.status(400).json({ msg: "Invalid request" });
   }
 
   try {
     const report = await Report.findOne({ mail: Emailid });
-    if (!report) {
-        
+    if (!report) {   
       return res.status(404).json({ msg: "Report not found" });
     }
 
